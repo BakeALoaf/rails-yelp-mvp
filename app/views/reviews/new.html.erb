@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/restaurants">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= restaurant_path(@restaurant)%>">Restaurant Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="<%= new_restaurant_review_path(@restaurant)%>">Add A Review<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content, placeholder: "Write your review here" %>
+  <%= f.input :rating, placeholder: "Add a rating (1-5)" %>
+  <%= f.submit "Add a review", class: "btn btn-primary" %>
+<% end %>
